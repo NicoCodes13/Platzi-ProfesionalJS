@@ -1,14 +1,33 @@
-class MediaPlayer {
+export default class MediaPlayer {
     constructor(config) {
-        this.media = config.el
+        this.media = config.el;
+        this.plugins = config.plugins || []; //inicializacion
+
+        this._initPlugins();
     }
-    playPause() {
-        if (this.media.paused) {
-            this.media.play();
-        } else {
-            this.media.pause();
-        }
+
+    _initPlugins() {
+        this.plugins.forEach(plugin => {
+            plugin.run(this)
+        });
+    }
+
+    play() {
+        this.media.play();
+    }
+
+    pause() {
+        this.media.pause();
+    }
+
+    togglePlay() {
+        this.media.paused ? this.play() : this.pause();
+    }
+
+    mute() {
+        this.media.muted = true;
+    }
+    unmute() {
+        this.media.muted = false;
     }
 }
-
-export default MediaPlayer;
