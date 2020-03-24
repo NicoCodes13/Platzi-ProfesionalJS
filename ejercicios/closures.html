@@ -1,76 +1,75 @@
 <html>
-  <head>
-    <title>Closures</title>
-  </head>
 
-  <body>
+<head>
+    <title>Closures</title>
+</head>
+
+<body>
     <a href="/ejercicios/">Go back</a>
     <p><em>Abre la consola</em></p>
 
     <script>
-      // Closures
-      // printColor
+        // Closures
+        // printColor
 
-      // IIFE
-      // (function() {
-      //   let color = 'green';
+        //NOTE IIFE funciones que se llaman automaticamente
+        //NOTE asi encapsulo el valor
+        // (function() {
+        //     let color = 'green'
 
-      //   function printColor() {
-      //     console.log(color);
-      //   }
+        //     function printColor() {
+        //         console.log(color);
+        //     }
 
-      //   printColor();
-      // })();
+        //     printColor();
+        // })();
 
-      // Funciones que regresan funciones
-      // function makeColorPrinter(color) {
-      //   let colorMessage = `The color is ${color}`;
+        //Funcion que regresan funciones
+        /*  function makeColorPrinter(color) {
+             let colorMessage = `The color is ${color}`;
 
-      //   return function() {
-      //     console.log(colorMessage);
-      //   };
-      // }
+             return function() {
+                 console.log(colorMessage)
+             }
+         }
 
-      // let greenColorPrinter = makeColorPrinter('green');
-      // console.log(greenColorPrinter());
+         let greenColorPrinter = makeColorPrinter("green");
+         console.log(greenColorPrinter()) */
 
-      // variables "privadas"
-      // const counter = {
-      //   count: 3,
-      // };
-      // console.log(counter.count);
-      // counter.count = 99;
-      // console.log(counter.count);
+        //NOTE variables privadas
+        /* const counter = {
+            count: 3,
+        }
 
-      function makeCounter(n) {
-        let count = n;
+        console.log(counter.count) */
 
-        return {
-          increase: function() {
-            count = count + 1;
-          },
-          decrease: function() {
-            count = count - 1;
-          },
-          getCount: function() {
-            return count;
-          },
-        };
-      }
+        function makeCounter(n) {
+            let count = n;
 
-      let counter = makeCounter(7);
+            return {
+                increase: function() {
+                    count += 1;
+                },
+                decrease: function() {
+                    count -= 1;
+                },
+                getCount: function() {
+                    return count;
+                },
+            };
+        }
 
-      console.log('The count is:', counter.getCount());
-      counter.increase();
-      console.log('The count is:', counter.getCount());
-      counter.decrease();
-      counter.decrease();
-      counter.decrease();
-      counter.decrease();
-      console.log('The count is:', counter.getCount());
+        let counter = makeCounter(7);
 
-      counter.count = 0;
-      console.log('The count is:', counter.getCount());
+        console.log('This count is ', counter.getCount());
+        counter.increase();
+        console.log('This count is ', counter.getCount());
+        counter.decrease();
+        counter.decrease();
+        counter.decrease();
+        counter.decrease();
+        console.log('This count is ', counter.getCount());
     </script>
-  </body>
+</body>
+
 </html>
