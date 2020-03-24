@@ -1,0 +1,16 @@
+{
+    "name": "platzi-media-player",
+    "version": "1.0.0",
+    "description": "Protecto del curso profesional de JS platzi",
+    "license": "MIT",
+    "author": "Nicolas Castañeda R <nickcar13@gmail.com",
+    "keywords": [
+        "Platzi"
+    ],
+    "scripts": {
+        "start": "live-server"
+    },
+    "devDependencies": {
+        "live-server": "^1.2.1"
+    }
+}
