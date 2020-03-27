@@ -1,6 +1,8 @@
 export default class AutoPlay {
     run(player) {
-        player.mute()
-        player.play()
+        if (!player.muted) {
+            player.muted = true;
+        }
+        player.play();
     };
 };
