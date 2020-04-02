@@ -20,7 +20,6 @@ export default class AutoPause {
     handleIntersection(entries) {
         //como el objeto que estamos observado es solo 1 tomamos la primera posicion
         const entry = entries[0];
-        console.log(entry);
 
         if (entry.isIntersecting) {
             this.player.play();
