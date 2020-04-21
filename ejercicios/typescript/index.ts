@@ -1,24 +1,31 @@
-//funciones despues de los parentesis se indica el tipo de retorno
-function add(a: number, b: number): number {
-    return a + b;
+//interfaces
+enum Color{
+    Rojo = "Rojo",
+    Verde = "Verde",
+}
+interface Rectangulo {
+    ancho: number
+    alto: number
+    color?:Color
 }
 
-const sum = add(4, 6);
+//la interfase actua como un tipo 
 
-//Tipar una funcion que devuelve una funcion
-function createAdder(a: number): (number) => number {
-    return function (b: number) {
-        return b + a;
-    }
+let rect: Rectangulo = {
+    ancho: 4,
+    alto: 6,
+    color: Color.Rojo,
+};
+
+function area(r: Rectangulo): number {
+    return r.alto * r.ancho;
 }
 
-const addFour = createAdder(4)
-const fourPlus6 = addFour(6);
+const areaRect = area(rect);
+console.log(areaRect);
 
-//funciones con parametros opcionales ? tiene la opcion de ser undifine y si se le asigna valor toma el asignado
-function fullName(firstName: string, lastName?: string = 'Smith'): string {
-    return `${firstName} ${lastName}`;
+rect.toString = function () {
+    return this.color ? `Un rectangulo ${this.color}` : `Un rectangulo`;
 }
 
-const richard = fullName('Agente');
-console.log(richard)
+console.log(rect.toString());
