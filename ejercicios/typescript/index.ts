@@ -1,39 +1,24 @@
-//bollean 
-
-let muted: boolean = true;
-muted = false;
-
-// Numeros
-let numerador:number = 42;
-let denominador:number = 6;
-let resultado = numerador / denominador;
-
-//string 
-let nombre: string = 'Richard';
-let saludo = `Me llamo richard ${nombre}`;
-
-//Arreglos 
-let people: string[] = [];
-people = ["Isabel","Nicole","Raul"];
-
-let peopleAndNumbers: Array< string | number> = [];
-peopleAndNumbers.push("Ricardo");
-peopleAndNumbers.push(2);
-
-//enum
-enum Color {
-    Rojo = "Rojo",
-    Verde = "Verde",
-    Azul = "Azul",
+//funciones despues de los parentesis se indica el tipo de retorno
+function add(a: number, b: number): number {
+    return a + b;
 }
 
-let colorFavorito:Color = Color.Verde;
-console.log(`Color favorito es ${colorFavorito}`);
+const sum = add(4, 6);
 
-//Any
-let comodin:any = "Joker"
-comodin = {type: "Wildcard"}
+//Tipar una funcion que devuelve una funcion
+function createAdder(a: number): (number) => number {
+    return function (b: number) {
+        return b + a;
+    }
+}
 
-//Object
+const addFour = createAdder(4)
+const fourPlus6 = addFour(6);
 
-let someObject: object = {type: "Wildcard"}
+//funciones con parametros opcionales ? tiene la opcion de ser undifine y si se le asigna valor toma el asignado
+function fullName(firstName: string, lastName?: string = 'Smith'): string {
+    return `${firstName} ${lastName}`;
+}
+
+const richard = fullName('Agente');
+console.log(richard)
