@@ -1,4 +1,9 @@
+import MediaPlayer from "../MediaPlayer";
+
 export default class AutoPause {
+    private threshold: number;
+    player: MediaPlayer
+
     constructor() {
         this.threshold = 0.25;
         this.handleIntersection = this.handleIntersection.bind(this);
@@ -17,7 +22,7 @@ export default class AutoPause {
     }
 
     //entries son los objetos a observar en este caso los enviados por player media
-    handleIntersection(entries) {
+    private handleIntersection(entries: IntersectionObserverEntry[]) {
         //como el objeto que estamos observado es solo 1 tomamos la primera posicion
         const entry = entries[0];
 
@@ -28,7 +33,7 @@ export default class AutoPause {
         }
     }
 
-    handleVisibilityChange() {
+    private handleVisibilityChange() {
         const isVisible = document.visibilityState === "visible";
         if (isVisible) {
             this.player.play();
